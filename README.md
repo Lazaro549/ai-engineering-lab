@@ -83,6 +83,8 @@ None required. Optional: `VITE_BASE` sets the base path for sub-path hosting (fo
 
 ## Build and deploy
 
+![](public/dist-evidence.png)
+
 ```bash
 npm run build      # outputs dist/
 npm run preview    # serve dist/ locally
