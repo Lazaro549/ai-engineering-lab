@@ -4,7 +4,8 @@
 
 A static technical hub that connects three AI engineering projects into one workflow: build, evaluate, benchmark, improve, ship.
 
-![AI Engineering Lab homepage](public/homepage-evidence.png)
+![AI Engineering Lab homepage](public/homepage-evidence01.png)
+![AI Engineering Lab homepage](public/homepage-evidence00.png)
 
 ## What it is and why it exists
 
@@ -82,9 +83,6 @@ Suggested sources: reports exported by the AI Evaluation Platform (JSON, CSV, Ma
 None required. Optional: `VITE_BASE` sets the base path for sub-path hosting (for example `/ai-engineering-lab/` on GitHub Pages).
 
 ## Build and deploy
-
-![](public/dist-evidence.png)
-
 ```bash
 npm run build      # outputs dist/
 npm run preview    # serve dist/ locally
