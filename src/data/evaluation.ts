@@ -10,8 +10,11 @@ import type { EvaluationRow, ResultSet } from './types'
  * Metrics computed: exact_match, keyword_overlap, response_length, latency, token_efficiency
  * 
  * Note: Mock provider returns deterministic but non-semantic responses.
- * Only 1/22 cases passed (case-001: RAG definition) because mock responses
- * don't match expected answers. This validates the pipeline, not model quality.
+ * Only 1/22 cases passed. This validates the pipeline, not model quality.
+ * The report's aggregate average_score includes model-based metrics whose judge
+ * responses could not be parsed. It is intentionally not displayed as accuracy.
+ * The reported cost is a total for this run, not a per-1k-request cost, so it is
+ * intentionally omitted from the per-1k table. The 50 ms mean latency is retained.
  * For real model evaluation, use OpenAI or Bedrock provider.
  */
 export const evaluationResults: ResultSet<EvaluationRow> = {
@@ -21,10 +24,10 @@ export const evaluationResults: ResultSet<EvaluationRow> = {
     {
       system: 'mock-model (offline pipeline validation)',
       values: {
-        accuracy: 30.8,  // average score across all deterministic metrics
-        faithfulness: null,  // requires LLM judge (not run with mock judge)
-        latency: 50.0,
-        cost: 0.0003,
+        accuracy: null,  // aggregate score is not a valid accuracy metric
+        faithfulness: null,  // model-based judge responses could not be parsed
+        latency: 50.0, // mean latency in ms from the source report
+        cost: null, // source reports total run cost, not cost per 1k requests
       },
     },
   ],
