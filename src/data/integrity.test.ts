@@ -7,6 +7,7 @@ import { projects } from './projects'
 import { workflowMetrics } from './workflow'
 import { formatChange, formatValue, relativeChange } from '../lib/format'
 import { deriveChunking } from '../lib/rag'
+import { evaluationColumns } from './columns'
 
 const numbers = (rows: { values: Record<string, number | null> }[]) =>
   rows.flatMap((r) => Object.values(r.values)).filter((v) => v !== null)
@@ -18,6 +19,15 @@ describe('no fabricated results', () => {
       if (set.status === 'empty') expect(numbers(set.rows)).toHaveLength(0)
       expect(set.status).not.toBe('demo')
     }
+  })
+
+  it('does not present an invalid aggregate score as accuracy or total run cost as normalized cost', () => {
+    const [row] = evaluationResults.rows
+    expect(row.values.accuracy).toBeNull()
+    expect(row.values.faithfulness).toBeNull()
+    expect(row.values.cost).toBeNull()
+    expect(row.values.latency).toBe(50)
+    expect(evaluationColumns.find((column) => column.key === 'accuracy')?.label).toBe('Accuracy')
   })
 
   it('demo sets are labeled demo', () => {
