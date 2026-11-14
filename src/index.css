@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0c1014;
-  --color-panel: #121820;
-  --color-panel-2: #18212b;
-  --color-line: #243040;
-  --color-line-strong: #3a4d63;
+  --color-ink: #050806;
+  --color-panel: #0b110d;
+  --color-panel-2: #111a14;
+  --color-line: #203126;
+  --color-line-strong: #385b42;
   --color-fg: #e6ebf1;
   --color-muted: #9aa8b9;
-  --color-signal: #7db4ff;
-  --color-variant: #b9a4ff;
+  --color-signal: #166534;
+  --color-variant: #9fc9a8;
   --color-demo: #f0b34a;
   --color-measured: #5fd39a;
   --font-sans: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -32,13 +32,13 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-signal);
+  outline: 2px solid #4ade80;
   outline-offset: 3px;
   border-radius: 2px;
 }
 
 ::selection {
-  background: rgb(125 180 255 / 0.3);
+  background: rgb(22 101 52 / 0.45);
 }
 
 /* Empty measurement track: hatched so "no data" never looks like a zero. */
